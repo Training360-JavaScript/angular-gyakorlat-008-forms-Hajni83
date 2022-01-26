@@ -29,4 +29,17 @@ export class EventService {
     );
   }
 
+  create(event:Event){
+    return this.http.put<Event>(
+      `${this.eventsUrl}/${event.id}`,
+      event,
+    );
+  }
+
+  remove(event:Event){
+    return this.http.delete<Event>(
+      `${this.eventsUrl}/${event.id}`
+    );
+  }
+
 }

@@ -27,6 +27,6 @@ export class EventEditorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-
+  onUpdate(eventForm:NgForm, event:Event){}
 
 }
