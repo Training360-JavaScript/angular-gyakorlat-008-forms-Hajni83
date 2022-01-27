@@ -2,11 +2,15 @@
   <div class="row my-2">
     <div class="col-10">
       <h3>All of the events should show below</h3>
+
     </div>
     <div class="col-2 text-right">
 
     </div>
   </div>
+<div>
+  <button [routerLink]="['event/' + 0]" class="btn btn-success mb-3">CREATE</button>
+</div>
 
   <table class="table">
     <thead>
@@ -29,7 +33,9 @@
             <button [routerLink]="['event/' + event.id]" class="btn btn-info">
               <i class="fa fa-pencil"></i>
             </button>
-
+            <button (click)="onDelete(event)" class="btn btn-danger ml-2">
+              <i class="fa fa-trash"></i>
+            </button>
           </div>
         </td>
       </tr>

@@ -42161,10 +42161,10 @@ If '${name}' is a directive input, make sure the directive is imported by the cu
       return this.http.patch(`${this.eventsUrl}/${event.id}`, event);
     }
     create(event) {
-      return this.http.post(this.eventsUrl, event);
+      return this.http.put(`${this.eventsUrl}/${event.id}`, event);
     }
-    remove(id) {
-      return this.http.delete(`${this.eventsUrl}/${id}`);
+    remove(eventId) {
+      return this.http.delete(`${this.eventsUrl}/${eventId}`);
     }
   };
   EventService = __decorateClass([
@@ -42226,7 +42226,7 @@ If '${name}' is a directive input, make sure the directive is imported by the cu
     });
     it("should post the correct Event", () => {
       service.create({ id: 1024, name: "BB Congress", date: "4/25/2040", time: "11am", location: "Hello Hotel" }).subscribe((data) => {
-        expect(data.name).toBe("name");
+        expect(data.name).toBe("BB Congress");
       });
       const req = httpMock.expectOne(`https://nettuts.hu/jms/feladat/events`);
       expect(req.request.method).toBe("POST");

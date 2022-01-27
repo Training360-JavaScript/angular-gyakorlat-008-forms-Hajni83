@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event } from '../model/event';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,9 +37,9 @@ export class EventService {
     );
   }
 
-  remove(event:Event){
+  remove(eventId:number){
     return this.http.delete<Event>(
-      `${this.eventsUrl}/${event.id}`
+      `${this.eventsUrl}/${eventId}`
     );
   }
 
